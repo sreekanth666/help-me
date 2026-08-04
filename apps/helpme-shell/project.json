@@ -1,0 +1,12 @@
+{
+  "name": "helpme-shell",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/helpme-shell",
+  "projectType": "application",
+  "tags": [
+    "scope:shell",
+    "type:app"
+  ],
+  "// targets": "to see all targets run: nx show project helpme-shell --web",
+  "targets": {}
+}

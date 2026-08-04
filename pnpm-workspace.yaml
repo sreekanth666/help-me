@@ -1,3 +1,15 @@
 autoInstallPeers: true
 allowBuilds:
+  # Native file watcher used by Nx's daemon.
+  '@parcel/watcher': true
+  # Rust-based TS/JS compiler used by the Nx build pipeline.
+  '@swc/core': true
+  # Pulled in as an optional Next.js dependency; we style with Tailwind, not Less.
+  less: false
   nx: true
+  # Native image pipeline behind next/image optimisation.
+  sharp: true
+  # Native module resolver behind eslint-plugin-import.
+  unrs-resolver: true
+  # Bundler/transform step behind Vite and Vitest.
+  esbuild: true
