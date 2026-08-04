@@ -15,19 +15,27 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    
-      "../../apps/helpme-shell/.next/types/**/*.ts",
-      "../../dist/apps/helpme-shell/.next/types/**/*.ts",
-    
+    "../../apps/helpme-shell/.next/types/**/*.ts",
+    "../../dist/apps/helpme-shell/.next/types/**/*.ts",
     "index.d.ts",
     "next-env.d.ts"
   ],
-  "exclude": ["node_modules", "jest.config.ts", "jest.config.cts", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": [
+    "node_modules",
+    "jest.config.ts",
+    "jest.config.cts",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }
