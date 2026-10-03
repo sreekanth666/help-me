@@ -67,8 +67,19 @@ There is no `packages/` directory — shared code lives in `libs/`.
 
 ## 6. Design System (`@helpme/ui`)
 
-Built on **shadcn/ui** with **Base UI** primitives (`base-nova` style, `neutral` base colour,
-lucide icons, Tailwind v4).
+Built on **shadcn/ui** with **Base UI** primitives, from shadcn preset **`b5KcQGecC`**:
+`base-luma` style, `mist` base colour, `sky` theme + chart colours, **Geist** font, lucide
+icons, pointer cursor on buttons, Tailwind v4.
+
+* **Re-applying or changing the preset.** `shadcn init`/`apply` refuse to run here (no
+  framework at the root). Instead, scaffold a throwaway reference app outside the repo with
+  `pnpm dlx shadcn@latest init --preset <code> --template next --pointer -n ref`, then copy:
+  `style` / `baseColor` / `menu*` into `components.json`; the `:root`, `.dark` and
+  `@theme inline` blocks into `globals.css`; then run
+  `pnpm dlx shadcn@latest add --all --overwrite -c .`.
+
+* **Fonts** are loaded by each app with `next/font` onto the `--font-sans` / `--font-mono`
+  variables (see `apps/helpme-shell/src/app/layout.tsx`); the library maps them to tokens.
 
 * **Add components from the repo root**, never from inside the library:
 

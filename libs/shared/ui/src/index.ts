@@ -1,7 +1,7 @@
 /*
  * @helpme/ui public entry point.
  *
- * Components are deliberately NOT re-exported here. A barrel over 61
+ * Components are deliberately NOT re-exported here. A barrel over 60+
  * components would drag the entire library — and every Base UI primitive it
  * depends on — into the client bundle of any app that imported a single
  * button. Import them per file instead, which is also shadcn's own
