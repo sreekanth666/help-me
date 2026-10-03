@@ -18,7 +18,7 @@ Entries marked *(planned)* do not exist yet.
 ```text
 help-me/
 ├── apps/                          # Deployable applications (Frontends & Backend)
-│   ├── helpme-shell/              # The Next.js App Shell (Host)
+│   ├── helpme-shell/              # The Next.js App Shell (Host); vercel.json = deploy config
 │   ├── helpme-shell-e2e/          # Playwright e2e suite for the shell
 │   ├── expense-manager/           # (planned) Micro-frontend: Expense App
 │   ├── budgeting/                 # (planned) Micro-frontend: Budgeting App
@@ -35,6 +35,7 @@ help-me/
 │       ├── budgets/               # Database models, services for budgets
 │       └── users/                 # User profiles and authentication logic
 │
+├── .github/workflows/ci.yml       # Lint/test/build affected projects on push & PR
 ├── docs/superpowers/specs/        # Design specs, one per work cycle
 ├── tools/                         # (planned) Custom scripts (e.g. migrations)
 ├── components.json                # shadcn config (must live at the repo root)
