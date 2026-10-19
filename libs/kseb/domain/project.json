@@ -1,0 +1,9 @@
+{
+  "name": "kseb-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kseb/domain/src",
+  "projectType": "library",
+  "tags": ["scope:kseb", "type:util"],
+  "// targets": "to see all targets run: nx show project kseb-domain --web",
+  "targets": {}
+}

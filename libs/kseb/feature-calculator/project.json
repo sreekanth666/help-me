@@ -1,0 +1,9 @@
+{
+  "name": "kseb-feature-calculator",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kseb/feature-calculator/src",
+  "projectType": "library",
+  "tags": ["scope:kseb", "type:feature"],
+  "// targets": "to see all targets run: nx show project kseb-feature-calculator --web",
+  "targets": {}
+}

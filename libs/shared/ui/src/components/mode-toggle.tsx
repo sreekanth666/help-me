@@ -17,7 +17,7 @@ export function ModeToggle() {
 
   useEffect(() => setMounted(true), []);
 
-  const isDark = resolvedTheme === 'dark';
+  const isDark = mounted && resolvedTheme === 'dark';
 
   return (
     <Button
@@ -27,7 +27,7 @@ export function ModeToggle() {
       disabled={!mounted}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
-      {mounted && isDark ? <MoonIcon /> : <SunIcon />}
+      {isDark ? <MoonIcon /> : <SunIcon />}
     </Button>
   );
 }

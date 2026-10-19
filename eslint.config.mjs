@@ -61,7 +61,15 @@ export default [
             },
             {
               sourceTag: 'scope:shell',
-              onlyDependOnLibsWithTags: ['scope:shell', 'scope:shared'],
+              onlyDependOnLibsWithTags: [
+                'scope:shell',
+                'scope:shared',
+                'scope:kseb',
+              ],
+            },
+            {
+              sourceTag: 'scope:kseb',
+              onlyDependOnLibsWithTags: ['scope:kseb', 'scope:shared'],
             },
           ],
         },
