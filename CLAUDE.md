@@ -30,6 +30,10 @@ help-me/
 │   │   ├── auth/                  # (planned) Login hooks, token management
 │   │   └── utils/                 # (planned) Date formatters, currency logic
 │   │
+│   ├── kseb/                      # KSEB bill calculator (scope:kseb), mounted at /kseb
+│   │   ├── domain/                # @helpme/kseb-domain — pure TS tariff engine + tests
+│   │   └── feature-calculator/    # @helpme/kseb-feature-calculator — React UI
+│   │
 │   └── backend-modules/           # (planned) DDD modules for the API
 │       ├── expenses/              # Database models, services for expenses
 │       ├── budgets/               # Database models, services for budgets

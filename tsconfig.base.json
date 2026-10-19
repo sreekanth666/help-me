@@ -16,7 +16,11 @@
     "strict": true,
     "paths": {
       "@helpme/ui": ["./libs/shared/ui/src/index.ts"],
-      "@helpme/ui/*": ["./libs/shared/ui/src/*"]
+      "@helpme/ui/*": ["./libs/shared/ui/src/*"],
+      "@helpme/kseb-domain": ["./libs/kseb/domain/src/index.ts"],
+      "@helpme/kseb-feature-calculator": [
+        "./libs/kseb/feature-calculator/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

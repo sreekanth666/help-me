@@ -8,3 +8,9 @@
  * TypeScript's path mappings.
  */
 @import '../../../../libs/shared/ui/src/styles/globals.css';
+
+/*
+ * Feature libraries are not scanned by the design system's own @source, so
+ * each one the shell mounts is declared here.
+ */
+@source '../../../../libs/kseb/feature-calculator/src';
