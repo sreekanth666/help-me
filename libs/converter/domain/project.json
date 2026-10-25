@@ -1,0 +1,9 @@
+{
+  "name": "converter-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/converter/domain/src",
+  "projectType": "library",
+  "tags": ["scope:converter", "type:util"],
+  "// targets": "to see all targets run: nx show project converter-domain --web",
+  "targets": {}
+}

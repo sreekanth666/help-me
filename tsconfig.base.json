@@ -20,6 +20,11 @@
       "@helpme/kseb-domain": ["./libs/kseb/domain/src/index.ts"],
       "@helpme/kseb-feature-calculator": [
         "./libs/kseb/feature-calculator/src/index.ts"
+      ],
+      "@helpme/converter-domain": ["./libs/converter/domain/src/index.ts"],
+      "@helpme/converter-engine": ["./libs/converter/engine/src/index.ts"],
+      "@helpme/converter-feature-converter": [
+        "./libs/converter/feature-converter/src/index.ts"
       ]
     }
   },

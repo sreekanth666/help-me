@@ -1,0 +1,9 @@
+{
+  "name": "converter-engine",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/converter/engine/src",
+  "projectType": "library",
+  "tags": ["scope:converter", "type:data-access"],
+  "// targets": "to see all targets run: nx show project converter-engine --web",
+  "targets": {}
+}

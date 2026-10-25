@@ -1,0 +1,9 @@
+{
+  "name": "converter-feature-converter",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/converter/feature-converter/src",
+  "projectType": "library",
+  "tags": ["scope:converter", "type:feature"],
+  "// targets": "to see all targets run: nx show project converter-feature-converter --web",
+  "targets": {}
+}
