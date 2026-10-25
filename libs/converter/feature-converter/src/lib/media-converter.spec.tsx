@@ -169,6 +169,42 @@ describe('MediaConverter', () => {
   });
 });
 
+describe('MediaConverter: settings sections', () => {
+  const imagePresets = () => screen.queryByRole('group', { name: 'Image preset' });
+
+  it('collapses and re-opens a section from its heading', async () => {
+    renderApp(fakeClient());
+    const images = screen.getByRole('button', { name: /^Images/ });
+    expect(images).toHaveAttribute('aria-expanded', 'true');
+    expect(imagePresets()).toBeInTheDocument();
+
+    fireEvent.click(images);
+    await waitFor(() => expect(imagePresets()).not.toBeInTheDocument());
+    expect(images).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.click(images);
+    expect(await screen.findByRole('group', { name: 'Image preset' })).toBeInTheDocument();
+  });
+
+  it('collapsing one section leaves the others open', async () => {
+    renderApp(fakeClient());
+    fireEvent.click(screen.getByRole('button', { name: /^Images/ }));
+    await waitFor(() => expect(imagePresets()).not.toBeInTheDocument());
+    expect(screen.getByRole('group', { name: 'Video preset' })).toBeInTheDocument();
+  });
+
+  it('keeps the video preset and fast-copy switch up front, the fine-tuning folded away', async () => {
+    renderApp(fakeClient());
+    expect(screen.getByRole('switch', { name: /keep original codecs/i })).toBeInTheDocument();
+    expect(screen.queryByLabelText('Max resolution')).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: /^Advanced video/ }));
+    expect(await screen.findByLabelText('Max resolution')).toBeInTheDocument();
+    expect(screen.getByLabelText('Max frame rate')).toBeInTheDocument();
+    expect(screen.getByRole('switch', { name: 'Remove audio' })).toBeInTheDocument();
+  });
+});
+
 describe('MediaConverter: oversize images', () => {
   it('refuses an image beyond the pixel budget up front, with advice', async () => {
     const client = fakeClient({

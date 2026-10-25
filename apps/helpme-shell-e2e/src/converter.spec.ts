@@ -46,9 +46,12 @@ test.describe('media converter', () => {
     return Buffer.from(base64, 'base64');
   }
 
-  /** A short WebM with a moving picture and a tone, recorded from a canvas and an oscillator. */
-  async function makeWebm(page: Page): Promise<Buffer> {
-    const base64 = await page.evaluate(async () => {
+  /**
+   * A short recording with a moving picture and a tone, made from a canvas and an oscillator.
+   * Chrome saves VP9 recordings as real WebM but H.264 ones as Matroska, still named .webm.
+   */
+  async function makeWebm(page: Page, mimeType = 'video/webm;codecs=vp9,opus'): Promise<Buffer> {
+    const base64 = await page.evaluate(async (type) => {
       const canvas = document.createElement('canvas');
       canvas.width = 320;
       canvas.height = 240;
@@ -62,7 +65,7 @@ test.describe('media converter', () => {
       osc.start();
       const stream = new MediaStream([...video.getVideoTracks(), ...dest.stream.getAudioTracks()]);
 
-      const recorder = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=vp9,opus' });
+      const recorder = new MediaRecorder(stream, { mimeType: type });
       const chunks: Blob[] = [];
       recorder.ondataavailable = (e) => e.data.size && chunks.push(e.data);
       const stopped = new Promise<void>((r) => (recorder.onstop = () => r()));
@@ -91,7 +94,7 @@ test.describe('media converter', () => {
       let s = '';
       bytes.forEach((b) => (s += String.fromCharCode(b)));
       return btoa(s);
-    });
+    }, mimeType);
     return Buffer.from(base64, 'base64');
   }
 
@@ -186,6 +189,20 @@ test.describe('media converter', () => {
     await expect(back.getByTestId('result-size')).toBeVisible({ timeout: 90_000 });
     const webm = await downloadOf(page, back.getByRole('button', { name: /Download clip\.webm/ }));
     expect([...webm.subarray(0, 4)]).toEqual([0x1a, 0x45, 0xdf, 0xa3]);
+  });
+
+  test('accepts a .webm that is really Matroska with H.264, as Chrome records it', async ({ page }) => {
+    const recording = await makeWebm(page, 'video/webm;codecs=h264,opus');
+    expect(ascii(recording, 0, 64)).toContain('matroska'); // the fixture is the awkward kind
+
+    await drop(page, 'recording.webm', 'video/webm', recording);
+    const item = page.getByTestId('queue-item');
+    await expect(item.getByText(/WebM · H\.264/)).toBeVisible();
+    await expect(item.getByLabel('Convert recording.webm to')).toHaveValue('mp4');
+    // H.264 already plays everywhere in MP4, so only the audio needs re-encoding.
+    await page.getByRole('button', { name: 'Convert all' }).click();
+    const mp4 = await downloadOf(page, item.getByRole('button', { name: /Download recording\.mp4/ }));
+    expect(ascii(mp4, 4, 8)).toBe('ftyp');
   });
 
   test('fast copy re-wraps WebM as MP4 without re-encoding', async ({ page }) => {

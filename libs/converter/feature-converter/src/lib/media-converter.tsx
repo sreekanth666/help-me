@@ -118,7 +118,10 @@ export function MediaConverter({ client: provided }: { client?: ConverterClient 
           )}
         </section>
 
-        <aside aria-label="Settings">
+        <aside
+          aria-label="Settings"
+          className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto"
+        >
           <SettingsPanel settings={c.settings} onChange={c.updateSettings} />
         </aside>
       </div>

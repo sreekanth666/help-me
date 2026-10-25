@@ -16,8 +16,8 @@ const asText = (b: Uint8Array, from: number, to: number) =>
 
 /**
  * Identifies a supported file from its leading bytes. The extension and MIME type are only hints
- * and are never consulted. Returns null for anything unsupported, including QuickTime and
- * Matroska, which share a container shape with MP4 and WebM.
+ * and are never consulted. Returns null for anything unsupported, including QuickTime. Matroska
+ * counts as WebM-family: what can be done with the tracks is the plan's decision, not the name's.
  */
 export function sniffFormat(head: Uint8Array): MediaFormat | null {
   if (startsWith(head, 0, [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) {
@@ -31,7 +31,9 @@ export function sniffFormat(head: Uint8Array): MediaFormat | null {
     return asText(head, 8, 12) === 'qt  ' ? null : 'mp4';
   }
   if (startsWith(head, 0, [0x1a, 0x45, 0xdf, 0xa3])) {
-    return asText(head, 4, SNIFF_BYTES).includes('webm') ? 'webm' : null;
+    // Chrome saves H.264 recordings as DocType "matroska" yet names them .webm, so both count.
+    const docType = asText(head, 4, SNIFF_BYTES);
+    return docType.includes('webm') || docType.includes('matroska') ? 'webm' : null;
   }
   return null;
 }

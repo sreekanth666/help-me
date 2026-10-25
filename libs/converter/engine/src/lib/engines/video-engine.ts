@@ -19,9 +19,9 @@ const MIME: Record<VideoFormat, string> = { mp4: 'video/mp4', webm: 'video/webm'
 let aacRegistered = false;
 
 async function openInput(file: File) {
-  const { Input, BlobSource, MP4, WEBM } = await import('mediabunny');
+  const { Input, BlobSource, MP4, MATROSKA, WEBM } = await import('mediabunny');
   // Range-reads the file; nothing is loaded whole.
-  return new Input({ source: new BlobSource(file), formats: [MP4, WEBM] });
+  return new Input({ source: new BlobSource(file), formats: [MP4, WEBM, MATROSKA] });
 }
 
 export async function probeVideo(file: File, container: VideoFormat): Promise<VideoProbe> {

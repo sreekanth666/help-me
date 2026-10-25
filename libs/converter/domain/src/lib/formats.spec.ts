@@ -47,11 +47,17 @@ describe('sniffFormat', () => {
     ).toBe('webm');
   });
 
-  it('rejects Matroska, which shares the EBML header with WebM', () => {
+  it('treats Matroska as WebM-family, since recorders save H.264 captures that way as .webm', () => {
     expect(
       sniffFormat(
         bytes(0x1a, 0x45, 0xdf, 0xa3, 0x9f, 0x42, 0x82, 0x88, ascii('matroska')),
       ),
+    ).toBe('webm');
+  });
+
+  it('rejects an EBML file that declares neither webm nor matroska', () => {
+    expect(
+      sniffFormat(bytes(0x1a, 0x45, 0xdf, 0xa3, 0x9f, 0x42, 0x82, 0x84, ascii('abcd'))),
     ).toBeNull();
   });
 
