@@ -33,6 +33,10 @@ help-me/
 │   ├── kseb/                      # KSEB bill calculator (scope:kseb), mounted at /kseb
 │   │   ├── domain/                # @helpme/kseb-domain — pure TS tariff engine + tests
 │   │   └── feature-calculator/    # @helpme/kseb-feature-calculator — React UI
+│   ├── converter/                 # Media converter (scope:converter), mounted at /converter
+│   │   ├── domain/                # @helpme/converter-domain — pure TS: sniffing, options, plan, queue
+│   │   ├── engine/                # @helpme/converter-engine — Web Worker + mediabunny / WebP wasm
+│   │   └── feature-converter/     # @helpme/converter-feature-converter — React UI
 │   │
 │   └── backend-modules/           # (planned) DDD modules for the API
 │       ├── expenses/              # Database models, services for expenses
