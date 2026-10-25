@@ -65,11 +65,16 @@ export default [
                 'scope:shell',
                 'scope:shared',
                 'scope:kseb',
+                'scope:converter',
               ],
             },
             {
               sourceTag: 'scope:kseb',
               onlyDependOnLibsWithTags: ['scope:kseb', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:converter',
+              onlyDependOnLibsWithTags: ['scope:converter', 'scope:shared'],
             },
           ],
         },

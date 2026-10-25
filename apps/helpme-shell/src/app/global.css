@@ -14,3 +14,4 @@
  * each one the shell mounts is declared here.
  */
 @source '../../../../libs/kseb/feature-calculator/src';
+@source '../../../../libs/converter/feature-converter/src';
