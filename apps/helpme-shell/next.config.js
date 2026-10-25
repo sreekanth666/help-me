@@ -2,8 +2,15 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Next.js options go here
-  // See: https://nextjs.org/docs/app/api-reference/config/next-config-js
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/kseb',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

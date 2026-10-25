@@ -15,10 +15,15 @@ const backgroundOf = (page: Page, selector: string) =>
     .evaluate((el) => getComputedStyle(el).backgroundColor);
 
 test.describe('shared design system', () => {
+  test('redirects root / to /kseb', async ({ page }) => {
+    await page.goto('/');
+    await expect(page).toHaveURL(/\/kseb$/);
+  });
+
   test('renders library components with their theme styles applied', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto('/design-system');
 
     const addExpense = page.getByRole('button', { name: 'Add expense' });
     await expect(addExpense).toBeVisible();
@@ -40,7 +45,7 @@ test.describe('shared design system', () => {
   });
 
   test('opens the dialog and fires a toast', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/design-system');
 
     await page.getByRole('button', { name: 'Add expense' }).click();
     const dialog = page.getByRole('dialog');
@@ -56,7 +61,7 @@ test.describe('shared design system', () => {
   test('toggles dark mode and repaints from the shared tokens', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto('/design-system');
 
     const html = page.locator('html');
     await expect(html).toHaveClass(/light|dark/);
@@ -85,7 +90,7 @@ test.describe('shared design system', () => {
     });
     page.on('pageerror', (error) => problems.push(`pageerror: ${error.message}`));
 
-    await page.goto('/');
+    await page.goto('/design-system');
     await expect(page.getByRole('table')).toBeVisible();
 
     expect(problems).toEqual([]);

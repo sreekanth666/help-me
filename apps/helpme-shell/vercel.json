@@ -3,5 +3,5 @@
   "framework": "nextjs",
   "installCommand": "cd ../.. && npx -y pnpm@12.4.1 install --frozen-lockfile",
   "buildCommand": "cd ../.. && npx nx build helpme-shell --skip-nx-cache",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ../../libs ../../package.json ../../pnpm-lock.yaml ../../pnpm-workspace.yaml ../../nx.json ../../tsconfig.base.json"
+  "ignoreCommand": "cd ../.. && npx -y nx-ignore helpme-shell"
 }
