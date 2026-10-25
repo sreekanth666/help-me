@@ -51,6 +51,34 @@ help-me/
 
 There is no `packages/` directory — shared code lives in `libs/`.
 
+### Adding a new app: route-per-app on one domain
+
+Every user-facing tool (KSEB, image converter, …) is a **route inside `helpme-shell`**, not a
+separate deployment or domain. The whole suite is served from one base URL
+(`settaakkam.vercel.app`), e.g. `/kseb`, `/image-converter`.
+
+`/kseb` is the reference implementation. To add an app `<name>`:
+
+1. Create `libs/<name>/domain` (pure TS logic + tests) and `libs/<name>/feature-<x>` (React UI),
+   imported as `@helpme/<name>-domain` / `@helpme/<name>-feature-<x>`.
+2. Tag both projects in `project.json` with `scope:<name>` and a `type:` tag, and add the new
+   scope to the constraints in `eslint.config.mjs`.
+3. Add `apps/helpme-shell/src/app/<name>/page.tsx`: export `metadata` (title suffix
+   ` · Help Me`) and render the feature component. Nothing else belongs in the page.
+4. Add an e2e spec in `apps/helpme-shell-e2e` for the new route, and register the app in
+   `apps/helpme-shell/src/app/apps.ts`.
+
+Notes:
+
+* One Vercel project, one deploy. `nx-ignore` and Nx affected builds limit unrelated work.
+* Next.js splits bundles per route. Load heavy client-side work (e.g. image processing) with
+  `next/dynamic` inside its own route so other apps don't pay for it.
+* `/` is the landing page. Register each new app in `apps/helpme-shell/src/app/apps.ts` so it
+  gets a card there. The design-system smoke test lives at `/design-system`.
+* Only move an app to **Multi-Zones** (shell proxies `/<name>/*` to a separate Vercel project,
+  still the same domain) if it must deploy independently. The libs stay unchanged, so this is a
+  cheap later move. Do not introduce separate domains or subdomains.
+
 ## 4. Architectural Rules & Constraints
 
 1. **Thin Applications:** The `apps/` directories act strictly as routing and assembly layers ("glue code"). 90% of business logic and UI components must reside in the `libs/` directory.

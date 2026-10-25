@@ -15,11 +15,6 @@ const backgroundOf = (page: Page, selector: string) =>
     .evaluate((el) => getComputedStyle(el).backgroundColor);
 
 test.describe('shared design system', () => {
-  test('redirects root / to /kseb', async ({ page }) => {
-    await page.goto('/');
-    await expect(page).toHaveURL(/\/kseb$/);
-  });
-
   test('renders library components with their theme styles applied', async ({
     page,
   }) => {
