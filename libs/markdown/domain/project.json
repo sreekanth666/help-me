@@ -1,0 +1,9 @@
+{
+  "name": "markdown-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/markdown/domain/src",
+  "projectType": "library",
+  "tags": ["scope:markdown", "type:util"],
+  "// targets": "to see all targets run: nx show project markdown-domain --web",
+  "targets": {}
+}

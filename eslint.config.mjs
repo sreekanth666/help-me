@@ -66,6 +66,7 @@ export default [
                 'scope:shared',
                 'scope:kseb',
                 'scope:converter',
+                'scope:markdown',
               ],
             },
             {
@@ -75,6 +76,10 @@ export default [
             {
               sourceTag: 'scope:converter',
               onlyDependOnLibsWithTags: ['scope:converter', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:markdown',
+              onlyDependOnLibsWithTags: ['scope:markdown', 'scope:shared'],
             },
           ],
         },

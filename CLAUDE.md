@@ -37,6 +37,9 @@ help-me/
 │   │   ├── domain/                # @helpme/converter-domain — pure TS: sniffing, options, plan, queue
 │   │   ├── engine/                # @helpme/converter-engine — Web Worker + mediabunny / WebP wasm
 │   │   └── feature-converter/     # @helpme/converter-feature-converter — React UI
+│   ├── markdown/                  # Markdown to Word (scope:markdown), mounted at /markdown-to-word
+│   │   ├── domain/                # @helpme/markdown-domain — pure TS: Markdown → Word-ready HTML (marked)
+│   │   └── feature-markdown-to-word/ # @helpme/markdown-feature-markdown-to-word — React UI, clipboard copy
 │   │
 │   └── backend-modules/           # (planned) DDD modules for the API
 │       ├── expenses/              # Database models, services for expenses
@@ -71,6 +74,8 @@ separate deployment or domain. The whole suite is served from one base URL
    ` · Help Me`) and render the feature component. Nothing else belongs in the page.
 4. Add an e2e spec in `apps/helpme-shell-e2e` for the new route, and register the app in
    `apps/helpme-shell/src/app/apps.ts`.
+5. Add an `@source` line for the feature lib in `apps/helpme-shell/src/app/global.css`, or its
+   Tailwind classes are never generated and the page renders unstyled.
 
 Notes:
 

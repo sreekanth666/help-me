@@ -25,6 +25,10 @@
       "@helpme/converter-engine": ["./libs/converter/engine/src/index.ts"],
       "@helpme/converter-feature-converter": [
         "./libs/converter/feature-converter/src/index.ts"
+      ],
+      "@helpme/markdown-domain": ["./libs/markdown/domain/src/index.ts"],
+      "@helpme/markdown-feature-markdown-to-word": [
+        "./libs/markdown/feature-markdown-to-word/src/index.ts"
       ]
     }
   },

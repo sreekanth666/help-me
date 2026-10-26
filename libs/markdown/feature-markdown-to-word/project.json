@@ -1,0 +1,9 @@
+{
+  "name": "markdown-feature-markdown-to-word",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/markdown/feature-markdown-to-word/src",
+  "projectType": "library",
+  "tags": ["scope:markdown", "type:feature"],
+  "// targets": "to see all targets run: nx show project markdown-feature-markdown-to-word --web",
+  "targets": {}
+}

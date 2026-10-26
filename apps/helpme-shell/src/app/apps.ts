@@ -20,4 +20,10 @@ export const apps: AppEntry[] = [
     description:
       'Convert PNG, JPEG, WebP, MP4 and WebM in your browser. Nothing is uploaded.',
   },
+  {
+    href: '/markdown-to-word',
+    name: 'Markdown to Word',
+    description:
+      'Paste Markdown and copy it as formatted text that pastes cleanly into Word.',
+  },
 ];
