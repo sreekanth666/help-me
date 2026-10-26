@@ -44,7 +44,7 @@ test.describe('Markdown to Word', () => {
       const [item] = await navigator.clipboard.read();
       return (await item.getType('text/html')).text();
     });
-    expect(html).toMatch(/<h1 [^>]*Calibri Light[^>]*>Report<\/h1>/);
+    expect(html).toMatch(/<h1 [^>]*font-family: Arial[^>]*>Report<\/h1>/);
     expect(html).toContain('<strong>bold</strong>');
   });
 

@@ -38,7 +38,7 @@ help-me/
 │   │   ├── engine/                # @helpme/converter-engine — Web Worker + mediabunny / WebP wasm
 │   │   └── feature-converter/     # @helpme/converter-feature-converter — React UI
 │   ├── markdown/                  # Markdown to Word (scope:markdown), mounted at /markdown-to-word
-│   │   ├── domain/                # @helpme/markdown-domain — pure TS: Markdown → Word-ready HTML (marked)
+│   │   ├── domain/                # @helpme/markdown-domain — pure TS: Markdown → Word-ready HTML (markdown-it)
 │   │   └── feature-markdown-to-word/ # @helpme/markdown-feature-markdown-to-word — React UI, clipboard copy
 │   │
 │   └── backend-modules/           # (planned) DDD modules for the API

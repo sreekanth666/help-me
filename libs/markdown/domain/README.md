@@ -1,9 +1,15 @@
 # @helpme/markdown-domain
 
-Pure TypeScript. `markdownToWordHtml(markdown)` turns GitHub-flavoured Markdown into an
-inline-styled HTML fragment that pastes into Microsoft Word with Word's own look (Heading 1-6,
-native lists and tables, Consolas code). Word ignores classes and CSS variables, so every style is
-inline.
+`markdownToWordHtml(markdown)` turns Markdown into an inline-styled HTML fragment that pastes into
+Microsoft Word and Google Docs. The pipeline is ported from the standalone `md-to-word` tool and
+lives in `src/lib/convert/`:
 
-Raw HTML in the input is escaped, and only `http`, `https`, `mailto` and `tel` links and
-`http`/`https`/`data:image` images are emitted. Run `pnpm nx test markdown-domain` after any change.
+1. `parse` - markdown-it (footnotes, task lists, linkify); raw HTML is escaped, never passed through.
+2. `normalize` - repairs what does not survive a paste (checkboxes become ☑/☐, dead footnote links).
+3. `highlight` - highlight.js spans for fenced code that declares a language.
+4. `inlineStyles` - applies `style-map.ts` as inline styles and strips classes, which Word ignores.
+
+All typography (Arial, sizes, colours) lives in `style-map.ts` as data. Change a value there, then
+read the snapshot diff before accepting it (`pnpm nx test markdown-domain -u`).
+
+The stages use `DOMParser`, so they run in the browser or under jsdom (the tests do).

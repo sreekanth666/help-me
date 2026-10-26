@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`convert > matches the snapshot for the full example document 1`] = `
+"<h1 style="font-family: Arial, sans-serif; color: #000000; font-size: 20pt; font-weight: 700; margin-top: 18pt; margin-bottom: 6pt">Quarterly Engineering Review</h1>
+<p style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; margin-top: 0; margin-bottom: 10pt">A short paragraph with <strong style="font-weight: 700">bold text</strong>, <em style="font-style: italic">italic text</em>, <s style="text-decoration: line-through">struck-through text</s>,
+<code style="font-family: &quot;Courier New&quot;, monospace; font-size: 10pt; background-color: #f1f3f4; color: #202124">inline code</code>, and <a href="https://example.com" style="color: #1155cc; text-decoration: underline">a link</a>.</p>
+<h2 style="font-family: Arial, sans-serif; color: #000000; font-size: 16pt; font-weight: 700; margin-top: 16pt; margin-bottom: 4pt">Summary</h2>
+<blockquote style="font-family: Arial, sans-serif; font-size: 11pt; color: #5f6368; border-left: 3pt solid #dadce0; padding-left: 12pt; margin-top: 0; margin-bottom: 10pt">
+<p style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; margin-top: 0; margin-bottom: 10pt">Shipping fewer things, more completely, beat shipping more things partially.</p>
+</blockquote>
+<h3 style="font-family: Arial, sans-serif; color: #000000; font-size: 14pt; font-weight: 700; margin-top: 14pt; margin-bottom: 4pt">Highlights</h3>
+<ul style="margin-top: 0; margin-bottom: 10pt; padding-left: 24pt">
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Reduced p99 latency by 40%
+<ul style="margin-top: 0; margin-bottom: 10pt; padding-left: 24pt">
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Query planner rewrite</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Connection pool tuning</li>
+</ul>
+</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Cut build times in half</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Retired two legacy services</li>
+</ul>
+<h3 style="font-family: Arial, sans-serif; color: #000000; font-size: 14pt; font-weight: 700; margin-top: 14pt; margin-bottom: 4pt">Release Checklist</h3>
+<ul style="margin-top: 0; margin-bottom: 10pt; padding-left: 24pt">
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; list-style-type: none">☑ Migrations applied</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; list-style-type: none">☑ Feature flags configured</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; list-style-type: none">☐ Runbook updated</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; list-style-type: none">☐ Postmortem scheduled</li>
+</ul>
+<h2 style="font-family: Arial, sans-serif; color: #000000; font-size: 16pt; font-weight: 700; margin-top: 16pt; margin-bottom: 4pt">Numbers</h2>
+<table style="border-collapse: collapse; margin-bottom: 10pt">
+<thead>
+<tr>
+<th style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; background-color: #f1f3f4; font-weight: 700; padding: 5pt; text-align: left">Metric</th>
+<th style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; background-color: #f1f3f4; font-weight: 700; padding: 5pt; text-align: left">Q1</th>
+<th style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; background-color: #f1f3f4; font-weight: 700; padding: 5pt; text-align: left">Q2</th>
+<th style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; background-color: #f1f3f4; font-weight: 700; padding: 5pt; text-align: left">Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">p99 latency (ms)</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">840</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">504</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">-40%</td>
+</tr>
+<tr>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">Build time (min)</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">12</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">6</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">-50%</td>
+</tr>
+<tr>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">Error rate (%)</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">0.42</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">0.31</td>
+<td style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; border: 1pt solid #999999; padding: 5pt; vertical-align: top">-26%</td>
+</tr>
+</tbody>
+</table>
+<h2 style="font-family: Arial, sans-serif; color: #000000; font-size: 16pt; font-weight: 700; margin-top: 16pt; margin-bottom: 4pt">Implementation Notes</h2>
+<p style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; margin-top: 0; margin-bottom: 10pt">The retry helper now caps total elapsed time rather than attempt count<sup style="vertical-align: super; font-size: 8pt">[1]</sup>:</p>
+<pre style="font-family: &quot;Courier New&quot;, monospace; font-size: 10pt; background-color: #f8f9fa; color: #202124; border: 1pt solid #dadce0; padding: 8pt; white-space: pre-wrap; margin-top: 0; margin-bottom: 10pt"><code style="font-family: &quot;Courier New&quot;, monospace; font-size: 10pt; color: #202124"><span style="color: #d73a49">async</span> <span style="color: #d73a49">function</span> <span style="color: #6f42c1">withRetry</span>(operation, budgetMs = <span style="color: #005cc5">5000</span>) {
+  <span style="color: #d73a49">const</span> deadline = <span style="color: #6f42c1">Date</span>.<span style="color: #6f42c1">now</span>() + budgetMs
+  <span style="color: #d73a49">let</span> delay = <span style="color: #005cc5">100</span>
+
+  <span style="color: #d73a49">while</span> (<span style="color: #6f42c1">Date</span>.<span style="color: #6f42c1">now</span>() &lt; deadline) {
+    <span style="color: #d73a49">try</span> {
+      <span style="color: #d73a49">return</span> <span style="color: #d73a49">await</span> <span style="color: #6f42c1">operation</span>()
+    } <span style="color: #d73a49">catch</span> (error) {
+      <span style="color: #d73a49">if</span> (<span style="color: #6f42c1">Date</span>.<span style="color: #6f42c1">now</span>() + delay &gt;= deadline) <span style="color: #d73a49">throw</span> error
+      <span style="color: #d73a49">await</span> <span style="color: #6f42c1">sleep</span>(delay)
+      delay *= <span style="color: #005cc5">2</span>
+    }
+  }
+}
+</code></pre>
+<p style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; margin-top: 0; margin-bottom: 10pt">Configuration lives in a plain block with no language tag:</p>
+<pre style="font-family: &quot;Courier New&quot;, monospace; font-size: 10pt; background-color: #f8f9fa; color: #202124; border: 1pt solid #dadce0; padding: 8pt; white-space: pre-wrap; margin-top: 0; margin-bottom: 10pt"><code style="font-family: &quot;Courier New&quot;, monospace; font-size: 10pt; color: #202124">RETRY_BUDGET_MS=5000
+RETRY_BASE_DELAY_MS=100
+</code></pre>
+<hr style="border: none; border-top: 1pt solid #dadce0">
+<h2 style="font-family: Arial, sans-serif; color: #000000; font-size: 16pt; font-weight: 700; margin-top: 16pt; margin-bottom: 4pt">Next Steps</h2>
+<ol style="margin-top: 0; margin-bottom: 10pt; padding-left: 24pt">
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Finish the runbook</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Schedule the postmortem</li>
+<li style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000">Start the caching spike</li>
+</ol>
+<p style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; margin-top: 0; margin-bottom: 10pt"><strong style="font-weight: 700">Footnotes</strong></p>
+<section>
+<ol style="margin-top: 0; margin-bottom: 10pt; padding-left: 24pt">
+<li id="fn1" style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000"><p style="font-family: Arial, sans-serif; font-size: 11pt; color: #000000; margin-top: 0; margin-bottom: 10pt">Attempt counts let a slow dependency exceed any latency budget. </p>
+</li>
+</ol>
+</section>
+"
+`;
